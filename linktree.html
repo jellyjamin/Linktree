@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Graham</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top left, #667eea, #764ba2 40%, #111827 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: radial-gradient(circle at top, #4f46e5, #020617 60%);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            color: #f9fafb;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid rgba(248, 250, 252, 0.95);
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            margin: 0 auto 18px;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 12px rgba(15, 23, 42, 0.7);
+            margin-bottom: 8px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: #e5e7eb;
+            opacity: 0.95;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .link-card {
+            background: rgba(15, 23, 42, 0.96);
+            padding: 14px 16px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: #f9fafb;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(30, 64, 175, 0.85);
+            transition: all 0.2s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+            background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.3), rgba(15, 23, 42, 0.98));
+            border-color: rgba(191, 219, 254, 0.95);
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .link-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .link-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .link-description {
+            font-size: 12px;
+            color: #cbd5f5;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .link-arrow {
+            color: #a5b4fc;
+            font-size: 18px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            transition: all 0.2s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
+            border-color: rgba(191, 219, 254, 0.9);
+        }
+
+        .twitter-bg { background: #1da1f2; }
+        .instagram-bg { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .github-bg { background: #333; }
+        .linkedin-bg { background: #0a66c2; }
+        .youtube-bg { background: #ff0000; }
+        .email-bg { background: #ea4335; }
+        .portfolio-bg { background: #6366f1; }
+        .dribbble-bg { background: #ea4c89; }
+        .tiktok-bg { background: #000000; }
+        .facebook-bg { background: #1877f2; }
+        .discord-bg { background: #5865f2; }
+        .slack-bg { background: #4a154b; }
+        .spotify-bg { background: #1db954; }
+        .twitch-bg { background: #9146ff; }
+        .reddit-bg { background: #ff4500; }
+        .medium-bg { background: #000000; }
+        .substack-bg { background: #ff6719; }
+        .patreon-bg { background: #ff424d; }
+        .kofi-bg { background: #ff5e5b; }
+        .behance-bg { background: #1769ff; }
+        .pinterest-bg { background: #e60023; }
+        .snapchat-bg { background: #fffc00; }
+        .whatsapp-bg { background: #25d366; }
+        .telegram-bg { background: #0088cc; }
+        .mastodon-bg { background: #6364ff; }
+        .bluesky-bg { background: #1185fe; }
+        .threads-bg { background: #000000; }
+        .steam-bg { background: #171a21; }
+        .playstation-bg { background: #003087; }
+        .xbox-bg { background: #107c10; }
+        .nintendo-bg { background: #e60012; }
+        .applemusic-bg { background: linear-gradient(135deg, #fa233b 0%, #fb5c74 100%); }
+        .soundcloud-bg { background: #ff5500; }
+        .bandcamp-bg { background: #629aa9; }
+        .etsy-bg { background: #f1641e; }
+        .paypal-bg { background: #0070ba; }
+        .venmo-bg { background: #008cff; }
+        .cashapp-bg { background: #00d64f; }
+        .calendly-bg { background: #006bff; }
+        .zoom-bg { background: #2d8cff; }
+        .goodreads-bg { background: #553b08; }
+        .letterboxd-bg { background: #2c3440; }
+        .amazon-bg { background: #ff9900; }
+        .notion-bg { background: #000000; }
+        .figma-bg { background: linear-gradient(135deg, #f24e1e 0%, #a259ff 50%, #0acf83 100%); }
+        .custom-bg { background: #0f766e; }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 32px 24px;
+            }
+
+            .profile-image {
+                width: 80px;
+                height: 80px;
+                font-size: 40px;
+            }
+
+            .profile-name {
+                font-size: 24px;
+            }
+
+            .link-card {
+                padding: 12px 14px;
+            }
+
+            .link-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <div class="profile-image">👤</div>
+            <div class="profile-name">Jake Graham</div>
+            <div class="profile-bio">Creator • Designer • Developer </div>
+        </div>
+
+        <div class="links">
+        <a href="https://github.com/jellyjamin" target="_blank" rel="noopener noreferrer" class="link-card">
+            <div class="link-icon github-bg">
+                <i class="fab fa-github"></i>
+            </div>
+            <div class="link-content">
+                <div class="link-title">Github</div>
+                <div class="link-description">My personal repository </div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="https://medium.com/@gjak675" target="_blank" rel="noopener noreferrer" class="link-card">
+            <div class="link-icon medium-bg">
+                <i class="fab fa-medium"></i>
+            </div>
+            <div class="link-content">
+                <div class="link-title">Medium</div>
+                <div class="link-description">My Personal medium blog</div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="https://graham-space.pages.dev/" target="_blank" rel="noopener noreferrer" class="link-card">
+            <div class="link-icon instagram-bg">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="link-content">
+                <div class="link-title">Graham_space</div>
+                <div class="link-description">Personal blog/portfolio </div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="www.linkedin.com/in/jake-graham-76b78b1a7" target="_blank" rel="noopener noreferrer" class="link-card">
+            <div class="link-icon linkedin-bg">
+                <i class="fab fa-linkedin-in"></i>
+            </div>
+            <div class="link-content">
+                <div class="link-title">Linkedin</div>
+                <div class="link-description"></div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        <a href="https://x.com/Graham__space" target="_blank" rel="noopener noreferrer" class="link-card">
+            <div class="link-icon twitter-bg">
+                <i class="fab fa-square-x-twitter"></i>
+            </div>
+            <div class="link-content">
+                <div class="link-title">x.com</div>
+                <div class="link-description">My x.com profile</div>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        </div>
+
+        <div class="social-icons">
+        <a href="https://github.com/jellyjamin" target="_blank" rel="noopener noreferrer" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="www.linkedin.com/in/jake-graham-76b78b1a7" target="_blank" rel="noopener noreferrer" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://x.com/Graham__space" target="_blank" rel="noopener noreferrer" class="social-icon">
+            <i class="fab fa-square-x-twitter"></i>
+        </a>
+        </div>
+    </div>
+</body>
+</html>
